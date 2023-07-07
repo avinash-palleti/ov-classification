@@ -76,10 +76,7 @@ RUN wget https://github.com/openvinotoolkit/open_model_zoo/archive/refs/tags/202
     && tar -xvf 2022.3.0.tar.gz \
     && rm -rf 2022.3.0.tar.gz \
     && . /dlwb/openvino_2022.3.0/.venv/bin/activate \
-    && pip3 install opencv-python-headless==4.5.3.56
-
-# adapt original to video preview in browser
-# COPY classification_demo.py /app/open_model_zoo-2022.3.0/demos/classification_demo/python/classification_demo.py
+    && pip3 install --no-cache-dir opencv-python-headless==4.5.3.56
 
 WORKDIR /data
 
