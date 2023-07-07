@@ -1,25 +1,34 @@
 # Classification Use-Case
 
-### Run Info
+### Build & Run Configs
 
 * Import from Dockerfile
 * GIT REPO URL: https://github.com/ojjsaw/ov-classification.git
 * GIT Branch: main
 * Dockerfile Path: Dockerfile
-* Mount directories for model input and result output required
+* Mount directories for model input, output
+  * Output Mount Point: /result
+  * Filesystem Path: PATH_TO_MY_MODEL_PROJECT_DIR
+  * Input Mount Point: /test
+  * Output Mount Point: /result
+* Test videos can be downloaded from: https://storage.openvinotoolkit.org/data/test_data/videos
+* Refer to the label txt files for supported labels while selecting test videos
+
+### Supported Container Environment Variables
 
 | Envr Var | Usage | Default Value |
 | -------- | ----- | ------------- |
 | MODEL    | path to .xml file from volume mount | NONE |
-| INPUT    | (optional) path to input video or images | /app/fruit-and-vegetable-detection.mp4 |
+| INPUT    | (optional) path to custom video or images, one video provided inside container | /app/fruit-and-vegetable-detection.mp4 |
 | DEVICE   | (optional) supports CPU or GPU or AUTO | CPU  |
-| OUTPUT   | path to output file on volume mount | /data/result.avi  |
+| OUTPUT   | path to output file on volume mount | /result/output.mp4  |
 | LABELS   | (optional) labels file path | /app/imagenet_2012.txt  |
+
 
 
 Example:
 ``` 
--e MODEL=/mount/mypath/mymodel.xml -e INPUT=/mount/mypath/videofile.mp4 -e OUTPUT=/mount/path/to/myfilename.avi
+-e MODEL=/test/mypath/to/mymodel.xml -e OUTPUT=/result/output.mp4
 ```
 
 

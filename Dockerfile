@@ -78,12 +78,15 @@ RUN wget https://github.com/openvinotoolkit/open_model_zoo/archive/refs/tags/202
     && . /dlwb/openvino_2022.3.0/.venv/bin/activate \
     && pip3 install opencv-python-headless==4.5.3.56
 
+# adapt original to video preview in browser
+COPY classification_demo.py /app/open_model_zoo-2022.3.0/demos/classification_demo/python/classification_demo.py
+
 WORKDIR /data
 
 ENV MODEL=""
 ENV DEVICE=CPU
 ENV INPUT=/app/fruit-and-vegetable-detection.mp4
 ENV LABELS=/app/imagenet_2012.txt
-ENV OUTPUT=/data/result.avi
+ENV OUTPUT=/result/output.mp4
 
 ENTRYPOINT ["/bin/bash", "-c", "source /dlwb/openvino_2022.3.0/.venv/bin/activate && python3 /app/open_model_zoo-2022.3.0/demos/classification_demo/python/classification_demo.py -m ${MODEL} -i ${INPUT} --labels ${LABELS} --no_show -d ${DEVICE} -o ${OUTPUT} && sleep 3"]
