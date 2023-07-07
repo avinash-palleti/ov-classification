@@ -79,7 +79,7 @@ RUN wget https://github.com/openvinotoolkit/open_model_zoo/archive/refs/tags/202
     && pip3 install opencv-python-headless==4.5.3.56
 
 # adapt original to video preview in browser
-COPY classification_demo.py /app/open_model_zoo-2022.3.0/demos/classification_demo/python/classification_demo.py
+# COPY classification_demo.py /app/open_model_zoo-2022.3.0/demos/classification_demo/python/classification_demo.py
 
 WORKDIR /data
 
