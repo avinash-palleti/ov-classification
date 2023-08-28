@@ -70,6 +70,7 @@ COPY --from=builder /dlwb/openvino_2022.3.0 /dlwb/openvino_2022.3.0
 
 WORKDIR /app
 COPY fruit-and-vegetable-detection.mp4 .
+COPY Pedestrain_Detect_2_1_1.mp4 .
 COPY imagenet_2012.txt .
 COPY imagenet_2015.txt .
 RUN wget https://github.com/openvinotoolkit/open_model_zoo/archive/refs/tags/2022.3.0.tar.gz \
@@ -82,7 +83,7 @@ WORKDIR /data
 
 ENV MODEL=""
 ENV DEVICE=CPU
-ENV INPUT=/app/fruit-and-vegetable-detection.mp4
+ENV INPUT=/app/Pedestrain_Detect_2_1_1.mp4
 ENV LABELS=/app/imagenet_2012.txt
 ENV OUTPUT=/result/output.mp4
 
