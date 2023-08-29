@@ -83,7 +83,7 @@ WORKDIR /data
 
 ENV MODEL=""
 ENV DEVICE=CPU
-ENV INPUT=/app/fruit-and-vegetable-detection.mp4
+ENV INPUT=/app/veg.mp4
 ENV LABELS=/app/imagenet_2012.txt
 ENV OUTPUT=/result/output.mp4
 
